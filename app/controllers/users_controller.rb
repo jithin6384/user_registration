@@ -5,20 +5,13 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		
-	  if params["user"]["password"] == params["user"]["password_confirmation"]
-         @user = User.new(permit_params)
-	     if @user.save
+		@user = User.new(permit_params)
+	     if @user.save &&  User.check_password(params)
            redirect_to login_path
 	     else
 	     	render 'new'
 	     end
-	   else
-	   	
-	   	
-	   	flash.now "password and password confirmation should match"
-	   	render 'new'
-	   end
+	  
 	end
 
 	def login
