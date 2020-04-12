@@ -1,0 +1,22 @@
+
+
+
+<h2>Login Form </h2>
+<%= form_with scope: :user, local: true do |f| %>
+
+
+
+
+
+
+  <%= f.label :email, "Email Address" %>
+  <%= f.text_field :email%> <br />
+
+  <%= f.label :password %>
+  <%= f.password_field :password%> <br />
+
+ 
+
+  <%= f.submit "User Login" %>
+
+<% end %>

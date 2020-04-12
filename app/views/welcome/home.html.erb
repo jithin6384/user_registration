@@ -1,0 +1,4 @@
+<h2>Welcome <%=@current_user.try(:name) %> </h2>
+<% if @current_user.present? %>
+  <%= link_to 'logout', logout_path ,method: :delete %>
+<% end %>
