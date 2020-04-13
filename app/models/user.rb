@@ -2,7 +2,7 @@ class User < ApplicationRecord
 	
 	validates :name, :email, :password, presence: true
 	validates :password, length: { minimum: 5 }
-	validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, on: :create }
+	validates :email, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, on: :create }
 	validate :check_password
 
 	def pass_params(params)
