@@ -5,8 +5,10 @@ class UsersController < ApplicationController
 	end
 
 	def create
+
 		@user = User.new(permit_params)
-	     if @user.save &&  User.check_password(params)
+          @user.pass_params(params)
+	     if @user.save 
            redirect_to login_path
 	     else
 	     	render 'new'
